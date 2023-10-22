@@ -2,12 +2,10 @@
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blueviolet?style=for-the-badge&logo=github)](https://github.com/yourusername/iwallet-project)
 ![Flutter 2.0+](https://img.shields.io/badge/Flutter-2.0+-blue?style=for-the-badge&logo=flutter)
-![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
 
 iWallet Project is a feature-rich Flutter application for searching and viewing user details. It leverages REST APIs for data retrieval, utilizes the `provider` package for state management, and the `http` package for making HTTP requests.
 
-![Screenshot 1](screenshots/screenshot1.png)
-![Screenshot 2](screenshots/screenshot2.png)
 
 ## Features
 
@@ -57,11 +55,11 @@ The application uses the following Flutter packages for various functionalities:
 
 ## 🖼️ Screenshots
 
-- **Screenshot 1:**
-  ![Screenshot 1](screenshots/screenshot1.png)
+- **Screenshot :**
 
-- **Screenshot 2:**
-  ![Screenshot 2](screenshots/screenshot2.png)
+![4 Ways Social Media Influences Consumer Behavior (1)](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/dc8a8f30-aca7-42eb-bcca-e38cbe956dec)
+
+
 
 ## 🤝 Contributing
 
