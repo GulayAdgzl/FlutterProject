@@ -1,8 +1,10 @@
 import 'package:case_questions/feature/view/deatil_popup.dart';
+import 'package:case_questions/feature/viewModel/loading_viewModel.dart';
 import 'package:case_questions/product/model/user_model.dart';
 import 'package:case_questions/product/service/photo_service.dart';
 import 'package:case_questions/product/service/users_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -10,10 +12,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late final LoadingViewModel _loadingViewModel;
+
   List<UsersModel> users = [];
+
   @override
   void initState() {
     super.initState();
+
+    _loadingViewModel = LoadingViewModel();
     fetchUsers().then((userList) {
       setState(() {
         users = userList;
@@ -23,78 +30,84 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("iWallet Project"),
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: [
-              TextField(
-                textInputAction: TextInputAction.search,
-                decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10.0,
-                      horizontal: 15,
-                    ),
-                    hintText: "Kullanıcı Ara",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                      borderSide: const BorderSide(),
-                    ),
-                    suffixIcon: IconButton(
-                      icon: Icon(Icons.clear),
-                      onPressed: () {
-                        setState(() {});
-                      },
-                    )),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: Container(child: _cardDetail()),
-              ),
-            ],
+    return ChangeNotifierProvider.value(
+      value: _loadingViewModel,
+      builder: (context, child) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text("iWallet Project"),
           ),
-        ),
-      ),
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  TextField(
+                    textInputAction: TextInputAction.search,
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 15,
+                      ),
+                      hintText: "Kullanıcı Ara",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(),
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.clear),
+                        onPressed: () {
+                          setState(() {});
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: Container(child: _cardDetail()),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
-}
 
-Widget _cardDetail() {
-  return ListView.builder(
-    itemCount: searchList.isNotEmpty ? searchList.length : users.length,
-    itemBuilder: (BuildContext context, int index) {
-      var currentPerson =
-          searchList.isNotEmpty ? searchList[index] : users[index];
-      return Card(
-        child: ListTile(
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [detail_icon(currentPerson: currentPerson)],
+  Widget _cardDetail() {
+    return ListView.builder(
+      itemCount: searchList.isNotEmpty ? searchList.length : users.length,
+      itemBuilder: (BuildContext context, int index) {
+        var currentPerson =
+            searchList.isNotEmpty ? searchList[index] : users[index];
+        return Card(
+          child: ListTile(
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [detail_icon(currentPerson: currentPerson)],
+            ),
+            title: Text(currentPerson.name!),
+            subtitle: Text(currentPerson.username!),
+            leading: FutureBuilder(
+              future: fetchUserImage(currentPerson.id!),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Icon(Icons.error);
+                } else {
+                  return CircleAvatar(
+                    backgroundImage: NetworkImage(snapshot.data!),
+                  );
+                }
+              },
+            ),
           ),
-          title: Text(currentPerson.name!),
-          subtitle: Text(currentPerson.username!),
-          leading: FutureBuilder(
-            future: fetchUserImage(currentPerson.id!),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                return Icon(Icons.error);
-              } else {
-                return CircleAvatar(
-                  backgroundImage: NetworkImage(snapshot.data!),
-                );
-              }
-            },
-          ),
-        ),
-      );
-    },
-  );
+        );
+      },
+    );
+  }
 }
