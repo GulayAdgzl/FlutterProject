@@ -1,4 +1,5 @@
 import 'package:case_questions/product/model/user_model.dart';
+import 'package:case_questions/product/service/users_service.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,6 +12,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    fetchUsers().then((userList) {
+      setState(() {
+        users = userList;
+      });
+    });
   }
 
   @override
