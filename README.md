@@ -7,6 +7,9 @@
 iWallet Project is a feature-rich Flutter application for searching and viewing user details. It leverages REST APIs for data retrieval, utilizes the `provider` package for state management, and the `http` package for making HTTP requests.
 
 
+![Screenshot ](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/9f4cd1bf-ac8f-4266-afd4-648679717125)
+
+
 ## Features
 
 - **User Search**: Users are fetched from the JSONPlaceholder API via HTTP request.
@@ -56,8 +59,11 @@ The application uses the following Flutter packages for various functionalities:
 ## 🖼️ Screenshots
 
 - **Screenshot :**
+- ![1](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/ec98d63e-032c-4a80-bc6a-ede323de0e76)
 
-![4 Ways Social Media Influences Consumer Behavior (1)](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/dc8a8f30-aca7-42eb-bcca-e38cbe956dec)
+
+-![2](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/1d4d08fe-38fa-4416-8660-8e3c9525e1c9)
+
 
 
 
