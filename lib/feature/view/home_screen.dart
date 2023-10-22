@@ -12,14 +12,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late FocusNode _focusNode;
   late final LoadingViewModel _loadingViewModel;
-
+  bool isSearch = false;
+  TextEditingController searchController = TextEditingController();
   List<UsersModel> users = [];
+  List<UsersModel> searchList = [];
 
   @override
   void initState() {
     super.initState();
-
+    _focusNode = FocusNode();
     _loadingViewModel = LoadingViewModel();
     fetchUsers().then((userList) {
       setState(() {
@@ -43,6 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   TextField(
+                    controller: searchController,
+                    focusNode: _focusNode,
                     textInputAction: TextInputAction.search,
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
@@ -54,13 +59,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(20.0),
                         borderSide: const BorderSide(),
                       ),
-                      suffixIcon: IconButton(
-                        icon: Icon(Icons.clear),
-                        onPressed: () {
-                          setState(() {});
-                        },
-                      ),
+                      suffixIcon: searchController.text.isNotEmpty
+                          ? IconButton(
+                              icon: Icon(Icons.clear),
+                              onPressed: () {
+                                searchController.clear(); // Yazıyı temizle
+                                _focusNode.unfocus();
+                                isSearch = false;
+                                searchList.clear();
+                                setState(() {});
+                              },
+                            )
+                          : null,
                     ),
+                    onSubmitted: (value) {
+                      searchFunc(value);
+                    },
                   ),
                   const SizedBox(
                     height: 20,
@@ -75,6 +89,31 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       },
     );
+  }
+
+  void searchFunc(String value) {
+    searchList.clear();
+    bool resultsFound = false; // Varsayılan olarak sonuç bulunmadı kabul edelim
+    for (var people in users) {
+      if (people.username!
+          .toLowerCase()
+          .trim()
+          .contains(value.toLowerCase().trim())) {
+        searchList.add(people);
+        resultsFound =
+            true; // Eşleşen bir sonuç bulunduğunda bu değişkeni true yapalım
+      }
+    }
+    setState(() {});
+
+    if (!resultsFound) {
+      // Sonuç bulunmadıysa bir uyarı mesajı görüntüleyelim
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(StringText.error),
+        ),
+      );
+    }
   }
 
   Widget _cardDetail() {
