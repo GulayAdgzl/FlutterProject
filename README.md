@@ -58,18 +58,12 @@ The application uses the following Flutter packages for various functionalities:
 
 ## 🖼️ Screenshots
 
-- **Screenshot :**
-- ![1](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/ec98d63e-032c-4a80-bc6a-ede323de0e76)
 
-
--![2](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/1d4d08fe-38fa-4416-8660-8e3c9525e1c9)
+  ![Adsız tasarım (9)](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/a8e4d208-babf-45cd-85bf-a8aa9352e548)
 
 
 
 
-## 🤝 Contributing
-
-Contributions are welcome! If you would like to contribute to this project, please check the [Contributing Guidelines](CONTRIBUTING.md).
 
 ## 🎉 Credits
 
