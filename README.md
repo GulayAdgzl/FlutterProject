@@ -1,45 +1,33 @@
-<h1 align="center">🚀 iWallet Project</h1>
+# 🚀 iWallet Project
 
-<p align="center">
-  <a href="https://github.com/yourusername/iwallet-project">
-    <img src="https://img.shields.io/badge/GitHub-Repository-blueviolet?style=for-the-badge&logo=github" alt="GitHub Repository">
-  </a>
-  <img src="https://img.shields.io/badge/Flutter-2.0+-blue?style=for-the-badge&logo=flutter" alt="Flutter 2.0+">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License MIT">
-</p>
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blueviolet?style=for-the-badge&logo=github)](https://github.com/yourusername/iwallet-project)
+![Flutter 2.0+](https://img.shields.io/badge/Flutter-2.0+-blue?style=for-the-badge&logo=flutter)
+![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-<p align="center">
-  📱 iWallet Project is a feature-rich Flutter application for searching and viewing user details. It leverages REST APIs for data retrieval, utilizes the <code>provider</code> package for state management, and the <code>http</code> package for making HTTP requests.
-</p>
+iWallet Project is a feature-rich Flutter application for searching and viewing user details. It leverages REST APIs for data retrieval, utilizes the `provider` package for state management, and the `http` package for making HTTP requests.
 
-<p align="center">
-  <img src="screenshots/screenshot1.png" alt="Screenshot 1" width="250">
-  <img src="screenshots/screenshot2.png" alt="Screenshot 2" width="250">
-</p>
+![Screenshot 1](screenshots/screenshot1.png)
+![Screenshot 2](screenshots/screenshot2.png)
 
-## 📋 Table of Contents
+## Features
 
-- [🚀 Features](#features)
-- [🚀 Installation](#installation)
-- [🚀 Usage](#usage)
-- [🌐 REST APIs](#rest-apis)
-- [📦 Dependencies](#dependencies)
-- [🖼️ Screenshots](#screenshots)
-- [🤝 Contributing](#contributing)
-- [🎉 Credits](#credits)
+- **User Search**: Users are fetched from the JSONPlaceholder API via HTTP request.
+- **Filtered Display**: Users are filtered based on the characters entered in the "Search for Users" field, specifically by their username.
+- **No User Found**: If no users match the search criteria, the message "User Not Found!" is displayed.
+- **Clear Search**: Clearing all characters from the "Search for Users" field will display all users again.
+- **Clear Button**: A button is provided to easily clear all characters entered in the search field, which will then display all users again.
+- **User Images**: User profile images are fetched based on the "id" field from Picsum Photos via HTTP requests.
+- **User Details Popup**: Clicking on a user in the list opens a popup displaying detailed user information.
 
-## 🚀 Features
+## Installation
 
-- **User Search**: The app allows users to search for other users by their usernames.
-- **User Details**: Clicking on a user's name provides an in-depth view, including their name, username, email, phone, address, company, and geographical location.
-
-## 🚀 Installation
-
-To run the **iWallet Project** on your local machine, follow these steps:
+To run the iWallet Project on your local machine, follow these steps:
 
 1. Clone this repository to your local machine:
 
    ```bash
+   git clone https://github.com/yourusername/iwallet-project.git
+
    git clone https://github.com/yourusername/iwallet-project.git
    cd iwallet-project
    flutter pub get
