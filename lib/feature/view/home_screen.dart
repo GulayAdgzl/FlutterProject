@@ -1,3 +1,4 @@
+import 'package:case_questions/feature/view/deatil_popup.dart';
 import 'package:case_questions/product/model/user_model.dart';
 import 'package:case_questions/product/service/photo_service.dart';
 import 'package:case_questions/product/service/users_service.dart';
