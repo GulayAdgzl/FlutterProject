@@ -43,7 +43,7 @@ To run the iWallet Project on your local machine, follow these steps:
 
 ## 🌐 REST APIs
 
-The iWallet Project relies on external REST APIs for user data:
+The  Project relies on external REST APIs for user data:
 
 - **JSONPlaceholder API**: This API provides mock data for various resources, including users.
 - **Picsum Photos**: User profile images are dynamically fetched from Picsum Photos. It offers random images for testing and development purposes.
@@ -58,9 +58,7 @@ The application uses the following Flutter packages for various functionalities:
 
 ## 🖼️ Screenshots
 
-
-  ![Adsız tasarım (9)](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/a8e4d208-babf-45cd-85bf-a8aa9352e548)
-
+![Adsız tasarım (10)](https://github.com/GulayAdgzl/FlutterProject/assets/44726684/92f51e0d-ffe4-4740-982d-f299bb6dcdd6)
 
 
 
