@@ -7,7 +7,7 @@
 iWallet Project is a feature-rich Flutter application for searching and viewing user details. It leverages REST APIs for data retrieval, utilizes the `provider` package for state management, and the `http` package for making HTTP requests.
 
 
-![Screenshot ](https://github.com/GulayAdgzl/iWalletCase/assets/44726684/9f4cd1bf-ac8f-4266-afd4-648679717125)
+
 
 
 ## Features
