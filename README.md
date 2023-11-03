@@ -1,4 +1,4 @@
-# 🚀 iWallet Project
+# 🚀 Flutter Project
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blueviolet?style=for-the-badge&logo=github)](https://github.com/yourusername/iwallet-project)
 ![Flutter 2.0+](https://img.shields.io/badge/Flutter-2.0+-blue?style=for-the-badge&logo=flutter)
