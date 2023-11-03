@@ -10,6 +10,7 @@ iWallet Project is a feature-rich Flutter application for searching and viewing 
 
 
 
+
 ## Features
 
 - **User Search**: Users are fetched from the JSONPlaceholder API via HTTP request.
@@ -58,7 +59,11 @@ The application uses the following Flutter packages for various functionalities:
 
 ## 🖼️ Screenshots
 
-![Adsız tasarım (10)](https://github.com/GulayAdgzl/FlutterProject/assets/44726684/92f51e0d-ffe4-4740-982d-f299bb6dcdd6)
+
+![Adsız tasarım](https://github.com/GulayAdgzl/FlutterProject/assets/44726684/818d361b-170e-4759-9279-d3c32a1cdfbc)
+
+
+
 
 
 
